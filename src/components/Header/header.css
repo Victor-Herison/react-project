@@ -1,0 +1,51 @@
+.header {
+  height: 70px;
+  background: var(--background-header);
+  display: flex;
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+.logo {
+  color: var(--primary);
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.search{
+  width: 50%;
+  background-color: #14191f;
+  padding: 13px 10px;
+  border-radius: 10px;
+  border-color: var(--border ) 1px solid;
+  display: flex;
+  justify-content: space-around;
+}
+.search-input {
+  width: 90%;
+  height: auto;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.search-button {
+  background-color: transparent;
+  border: none;
+  color: var(--primary);
+  cursor: pointer;
+  font-size: 20px;
+  margin-right: 0;
+}
+
+nav a + a {
+  margin-left: 25px;
+  color: var(--text-primary);
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: var(--primary);
+}

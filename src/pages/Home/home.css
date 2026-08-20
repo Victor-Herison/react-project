@@ -51,6 +51,8 @@
 
 .container-1 button:hover {
   background-color: darken(var(--primary), 5%);
+  color: var(--text-primary);
+  border: 1px solid var(--text-primary);
 }
 
 .hero-content {

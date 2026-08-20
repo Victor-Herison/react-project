@@ -7,6 +7,7 @@ import {
   upcomingMovies
 } from "../../services/api"
 import "./home.css"
+import Carousel from "../../components/Carousel"
 
 function Home() {
   const [popular, setPopular] = useState([])
@@ -47,18 +48,10 @@ function Home() {
       </div>
       <div className="container-2">
         <section className="carousel-container">
-          <h2>Top Rated Movies</h2>
-          <div className="carousel">
-            {topRated.map(movie => (
-              <div key={movie.id} className="carousel-item">
-                <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
-                <h3>{movie.title}</h3>
-              </div>
-            ))}
-          </div>
+          <Carousel movies={popular} filter="Popular" />
         </section>
         <section className="carousel-container">
-          <h2>Search by Category</h2>
+          <Carousel movies={topRated} filter="Top Rated" />
         </section>
       </div>
       

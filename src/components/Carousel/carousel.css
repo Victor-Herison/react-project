@@ -1,0 +1,75 @@
+.carousel {
+    background-color: var(--background-secondary);
+  width: 100%;
+  overflow: hidden;
+}
+.carousel-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 32px;
+  color: var(--text-primary);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  
+}
+.arrow {
+    cursor: pointer;
+    color: var(--text-primary);
+    transition: transform 0.2s ease;
+}
+.arrow:hover{
+    transform: scale(1.1);
+}
+.carousel-content {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+  gap: 1rem;
+}
+
+.carousel-item {
+  flex: 0 0 180px;
+}
+.poster {
+  position: relative;
+  width: 100%;
+}
+
+.poster:hover {
+    transform: scale(1.03);
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+.carousel-item h3 {
+
+  bottom: 10px;
+  left: 10px;
+  color: var(--text-primary);
+  font-size: 16px;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+}
+
+.vote-average {
+  position: absolute;
+
+  bottom: 10px;
+  left: 10px;
+
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+
+  padding: 4px 8px;
+  border-radius: 4px;
+
+  font-size: 14px;
+}
+.vote-average:before{
+    content: "⭐";
+}

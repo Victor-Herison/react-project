@@ -5,7 +5,7 @@ import { useState } from "react";
 function Carousel({ movies, filter }) {
     const [position, setPosition] = useState(0);
     const cardWidth = 200; // Width of each card in pixels
-    const visibleCards = 6;
+    const visibleCards = 9;
     const maxPosition = cardWidth * (movies.length - visibleCards);
     
     const next = () => {

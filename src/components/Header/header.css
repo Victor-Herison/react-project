@@ -21,6 +21,7 @@
   border-color: var(--border ) 1px solid;
   display: flex;
   justify-content: space-around;
+  
 }
 .search-input {
   width: 90%;
@@ -28,6 +29,7 @@
   border: none;
   outline: none;
   background-color: transparent;
+  color: var(--primary);
 }
 
 .search-button {

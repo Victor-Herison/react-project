@@ -82,9 +82,15 @@
   margin-left: 10px;
 }
 .carousel-container h2{
-  color: var(--text-primary);
+  color: var(--text-secondary);
   font-size: 24px;
   font-weight: 600;
+  margin-top: 20px;
+}
+.carousel-container h1{
+  color: var(--primary);
+  font-size: 36px;
+  font-weight: 700;
   margin-top: 20px;
 }
 

@@ -5,7 +5,12 @@ import {
   nowPlayingMovies,
   topRatedMovies,
   upcomingMovies,
-  trendingMovies
+  trendingMovies,
+  airingSeries,
+  onTheAirSeries,
+  popularSeries,
+  topRatedSeries,
+  trendingSeries
 } from "../../services/api"
 import "./home.css"
 import Carousel from "../../components/Carousel"
@@ -16,8 +21,14 @@ function Home() {
   const [topRated, setTopRated] = useState([])
   const [upcoming, setUpcoming] = useState([])
   const [trendingMovie, setTrendingMovie] = useState([])
+  const [popularSerie, setPopularSerie] = useState([])
+  const [airyingSerie, setAiringSerie] = useState([])
+  const [onTheAirSerie, setOnTheAirSerie] = useState([])
+  const [topRatedSerie, setTopRatedSerie] = useState([])
+  const [trendingSerie, setTrendingSerie] = useState([])
   const [loading, setLoading] = useState(true)
-  const [filter, setFilter] = useState("Now Playing")
+  const [filterMovie, setFilterMovie] = useState("Now Playing")
+  const[filterSerie, setFilterSerie] = useState("Airing Today")
 
   useEffect(()=>{
     async function loadMovies(){
@@ -35,18 +46,49 @@ function Home() {
 
     const trending = await trendingMovies()
     setTrendingMovie(trending.data.results)
-
     }
     loadMovies()
     setLoading(false)
   },[])
+
+  //SERIES
+  useEffect(()=>{
+    setLoading(true)
+    async function loadSeries(){
+    const popular = await popularSeries()
+    setPopularSerie(popular.data.results)
+
+    const airing = await airingSeries()
+    setAiringSerie(airing.data.results)
+
+    const topRated = await topRatedSeries()
+    setTopRatedSerie(topRated.data.results)
+
+    const onTheAir = await onTheAirSeries()
+    setOnTheAirSerie(onTheAir.data.results)
+
+    const trending = await trendingSeries()
+    setTrendingSerie(trending.data.results)
+    }
+    loadSeries()
+    setLoading(false)
+  },[])
+  
 let filteredMovie = {
   "Now Playing":nowPlaying,
   "Top Rated":topRated,
   "Upcoming":upcoming,
   "Trending Movies":trendingMovie
-    } [filter];
-  
+    } [filterMovie];
+
+  let filteredSerie = {
+    "Airing Today":airyingSerie,
+    "On The Air":onTheAirSerie,
+    "Popular":popularSerie,
+    "Top Rated":topRatedSerie,
+    "Trending":trendingSerie
+  } [filterSerie];
+
   return (
     <div>
       <div className="container-1">
@@ -59,28 +101,51 @@ let filteredMovie = {
       </div>
       <div className="container-2">
         <section className="carousel-container">
+          <h1>Movies</h1>
           <Carousel movies={popular} title="Popular" />
         </section>
         <section className="carousel-container">
           <div>
             <h2>Search by category</h2>
             <button className={`filter ${
-                  filter === "Now Playing" ? "filter-active" : ""
-                  }`} onClick={() => setFilter("Now Playing")}>Now Playing</button>
+                  filterMovie === "Now Playing" ? "filter-active" : ""
+                  }`} onClick={() => setFilterMovie("Now Playing")}>Now Playing</button>
             <button className={`filter ${
-                  filter === "Top Rated" ? "filter-active" : ""
+                  filterMovie === "Top Rated" ? "filter-active" : ""
                   }`}
-                  onClick={() => setFilter("Top Rated")}>Top Rated</button>
+                  onClick={() => setFilterMovie("Top Rated")}>Top Rated</button>
             <button className={`filter ${
-                  filter === "Upcoming" ? "filter-active" : ""
+                  filterMovie === "Upcoming" ? "filter-active" : ""
                   }`}
-                  onClick={() => setFilter("Upcoming")}>Upcoming</button>
+                  onClick={() => setFilterMovie("Upcoming")}>Upcoming</button>
                   <button className={`filter ${
-                  filter === "Trending Movies" ? "filter-active" : ""
+                  filterMovie === "Trending Movies" ? "filter-active" : ""
                   }`}
-                  onClick={() => setFilter("Trending Movies")}>Trending Movies</button>
+                  onClick={() => setFilterMovie("Trending Movies")}>Trending Movies</button>
           </div>
-          <Carousel movies={filteredMovie} title={filter}/>
+          <Carousel movies={filteredMovie} title={filterMovie}/>
+        </section>
+        <section className="carousel-container">
+          <div>
+            <h1>TV Series</h1>
+            <h2>Search by category</h2>
+            <button className={`filter ${
+                  filterSerie === "Airing Today" ? "filter-active" : ""
+                  }`} onClick={() => setFilterSerie("Airing Today")}>Airing Today</button>
+            <button className={`filter ${
+                  filterSerie === "Top Rated" ? "filter-active" : ""
+                  }`}
+                  onClick={() => setFilterSerie("Top Rated")}>Top Rated</button>
+            <button className={`filter ${
+                  filterSerie === "On The Air" ? "filter-active" : ""
+                  }`}
+                  onClick={() => setFilterSerie("On The Air")}>On The Air</button>
+            <button className={`filter ${
+                  filterSerie === "Trending" ? "filter-active" : ""
+                  }`}
+                  onClick={() => setFilterSerie("Trending")}>Trending Series</button>
+          </div>
+          <Carousel movies={filteredSerie} title={filterSerie}/>
         </section>
       </div>
       

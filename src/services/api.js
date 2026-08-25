@@ -25,9 +25,14 @@ async function upcomingMovies() {
   return await api.get("/movie/upcoming");
 }
 
+async function trendingMovies() {
+  return await api.get("trending/movie/day");
+}
+
 export {
   popularMovies,
   nowPlayingMovies,
   topRatedMovies,
-  upcomingMovies
+  upcomingMovies,
+  trendingMovies
 };

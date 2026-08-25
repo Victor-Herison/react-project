@@ -4,7 +4,8 @@ import {
   popularMovies,
   nowPlayingMovies,
   topRatedMovies,
-  upcomingMovies
+  upcomingMovies,
+  trendingMovies
 } from "../../services/api"
 import "./home.css"
 import Carousel from "../../components/Carousel"
@@ -14,6 +15,7 @@ function Home() {
   const [nowPlaying, setNowPlaying] = useState([])
   const [topRated, setTopRated] = useState([])
   const [upcoming, setUpcoming] = useState([])
+  const [trendingMovie, setTrendingMovie] = useState([])
   const [loading, setLoading] = useState(true)
   const [filter, setFilter] = useState("Now Playing")
 
@@ -30,23 +32,20 @@ function Home() {
 
     const upcoming = await upcomingMovies()
     setUpcoming(upcoming.data.results)
+
+    const trending = await trendingMovies()
+    setTrendingMovie(trending.data.results)
+
     }
     loadMovies()
     setLoading(false)
   },[])
-let filteredMovie = {"Now Playing":nowPlaying,
-    "Top Rated":topRated,
-     "Upcoming":upcoming} [filter];
-
-  if (filter === "Now Playing") {
-      filteredMovie = nowPlaying
-    }
-  else if(filter === "Top Rated"){
-       filteredMovie = topRated
-    }
-  else if(filter === "Upcoming"){
-        filteredMovie = upcoming
-    }
+let filteredMovie = {
+  "Now Playing":nowPlaying,
+  "Top Rated":topRated,
+  "Upcoming":upcoming,
+  "Trending Movies":trendingMovie
+    } [filter];
   
   return (
     <div>
@@ -76,6 +75,10 @@ let filteredMovie = {"Now Playing":nowPlaying,
                   filter === "Upcoming" ? "filter-active" : ""
                   }`}
                   onClick={() => setFilter("Upcoming")}>Upcoming</button>
+                  <button className={`filter ${
+                  filter === "Trending Movies" ? "filter-active" : ""
+                  }`}
+                  onClick={() => setFilter("Trending Movies")}>Trending Movies</button>
           </div>
           <Carousel movies={filteredMovie} title={filter}/>
         </section>

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import {useState, useEffect} from "react"
+import {useState, useEffect, use} from "react"
 import {
   popularMovies,
   nowPlayingMovies,
@@ -15,6 +15,7 @@ function Home() {
   const [topRated, setTopRated] = useState([])
   const [upcoming, setUpcoming] = useState([])
   const [loading, setLoading] = useState(true)
+  const [filter, setFilter] = useState("Now Playing")
 
   useEffect(()=>{
     async function loadMovies(){
@@ -30,11 +31,22 @@ function Home() {
     const upcoming = await upcomingMovies()
     setUpcoming(upcoming.data.results)
     }
-    console.log(topRated)
     loadMovies()
     setLoading(false)
   },[])
+let filteredMovie = {"Now Playing":nowPlaying,
+    "Top Rated":topRated,
+     "Upcoming":upcoming} [filter];
 
+  if (filter === "Now Playing") {
+      filteredMovie = nowPlaying
+    }
+  else if(filter === "Top Rated"){
+       filteredMovie = topRated
+    }
+  else if(filter === "Upcoming"){
+        filteredMovie = upcoming
+    }
   
   return (
     <div>
@@ -48,10 +60,24 @@ function Home() {
       </div>
       <div className="container-2">
         <section className="carousel-container">
-          <Carousel movies={popular} filter="Popular" />
+          <Carousel movies={popular} title="Popular" />
         </section>
         <section className="carousel-container">
-          <Carousel movies={topRated} filter="Top Rated" />
+          <div>
+            <h2>Search by category</h2>
+            <button className={`filter ${
+                  filter === "Now Playing" ? "filter-active" : ""
+                  }`} onClick={() => setFilter("Now Playing")}>Now Playing</button>
+            <button className={`filter ${
+                  filter === "Top Rated" ? "filter-active" : ""
+                  }`}
+                  onClick={() => setFilter("Top Rated")}>Top Rated</button>
+            <button className={`filter ${
+                  filter === "Upcoming" ? "filter-active" : ""
+                  }`}
+                  onClick={() => setFilter("Upcoming")}>Upcoming</button>
+          </div>
+          <Carousel movies={filteredMovie} title={filter}/>
         </section>
       </div>
       

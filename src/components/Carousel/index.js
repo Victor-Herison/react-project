@@ -2,7 +2,7 @@ import "./carousel.css"
 import { HiArrowSmLeft, HiArrowSmRight } from "react-icons/hi";
 import { useState } from "react";
 
-function Carousel({ movies, filter }) {
+function Carousel({ movies, title }) {
     const [position, setPosition] = useState(0);
     const cardWidth = 200; // Width of each card in pixels
     const visibleCards = 9;
@@ -14,12 +14,11 @@ function Carousel({ movies, filter }) {
     const previus = () => {
         setPosition((current) => Math.max(current - cardWidth, 0))
     }
-    console.log(movies)
 
   return (
     <div className="carousel">
         <div className="carousel-header">
-            <span>{filter}</span>
+            <span>{title}</span>
             <div>
                 <HiArrowSmLeft className="arrow" onClick={previus}/>
                 <HiArrowSmRight className="arrow" onClick={next}/>

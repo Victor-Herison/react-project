@@ -29,11 +29,11 @@ async function trendingMovies() {
   return await api.get("/trending/movie/day");
 }
 // TV SERIES
-async function airyingSeries(){
+async function airingSeries(){
   return await api.get("/tv/airing_today");
 }
 
-async function OnTheAirSeries(){
+async function onTheAirSeries(){
   return await api.get("/tv/on_the_air");
 }
 
@@ -45,14 +45,19 @@ async function topRatedSeries(){
   return await api.get("tv/top_rated");
 }
 
+async function trendingSeries(){
+  return await api.get("/trending/tv/day");
+}
+
 export {
   popularMovies,
   nowPlayingMovies,
   topRatedMovies,
   upcomingMovies,
   trendingMovies,
-  airyingSeries,
-  OnTheAirSeries,
+  airingSeries,
+  onTheAirSeries,
   popularSeries,
-  topRatedSeries
+  topRatedSeries,
+  trendingSeries
 };

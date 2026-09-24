@@ -1,6 +1,7 @@
 import "./carousel.css"
 import { HiArrowSmLeft, HiArrowSmRight } from "react-icons/hi";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Carousel({ movies, title }) {
     const [position, setPosition] = useState(0);
@@ -27,6 +28,7 @@ function Carousel({ movies, title }) {
         <div className="carousel-content"
         style={{transform: `translateX(-${position}px)`}}>
           {movies.map((movie) => (
+            <Link to={`/movie/${movie.id}`} className="carousel-item" key={movie.id}>
             <div className="carousel-item" key={movie.id}>
                 <div className="poster">
                   <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt={movie.title} />
@@ -35,6 +37,7 @@ function Carousel({ movies, title }) {
               
               
             </div>
+            </Link>
           ))}
         </div>
     </div>

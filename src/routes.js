@@ -6,18 +6,16 @@ import Header from './components/Header';
 import Contact from './pages/Contact';
 import Products from './pages/Products';
 import Footer from './components/Footer';
+import Movie from './pages/Movie';
 function AppRoutes() {
     return (
         <BrowserRouter>
             <Header/>
             <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/movie/:id" element={<Movie />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
-                <Route path="/products/:id" element={<Products />} />
-
-
-
                 <Route path="*" element={<h1>404 - Not Found</h1>} />
             </Routes>
             <Footer />

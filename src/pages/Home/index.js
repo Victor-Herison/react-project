@@ -93,7 +93,7 @@ let filteredMovie = {
     <div>
       <div className="container-1">
         <div className="hero-content">
-          <h2>Welcome to</h2>
+          <h2 id="home">Welcome to</h2>
           <h1>CINEFLIX</h1>
           <span>Your favorite movie platform to discover new films</span>
           <button>Explore Now</button>
@@ -101,20 +101,20 @@ let filteredMovie = {
       </div>
       <div className="container-2">
         <section className="carousel-container">
-          <h1>Movies</h1>
+          <h1 id="popular">Movies</h1>
           <Carousel movies={popular} title="Popular" />
         </section>
         <section className="carousel-container">
           <div>
-            <h2>Search by category</h2>
-            <button className={`filter ${
+            <h2 id="search-category">Search by category</h2>
+            <button id="now-playing" className={`filter ${
                   filterMovie === "Now Playing" ? "filter-active" : ""
                   }`} onClick={() => setFilterMovie("Now Playing")}>Now Playing</button>
-            <button className={`filter ${
+            <button id="top-rated" className={`filter ${
                   filterMovie === "Top Rated" ? "filter-active" : ""
                   }`}
                   onClick={() => setFilterMovie("Top Rated")}>Top Rated</button>
-            <button className={`filter ${
+            <button id="upcoming" className={`filter ${
                   filterMovie === "Upcoming" ? "filter-active" : ""
                   }`}
                   onClick={() => setFilterMovie("Upcoming")}>Upcoming</button>

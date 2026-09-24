@@ -5,6 +5,7 @@ import About from './pages/About';
 import Header from './components/Header';
 import Contact from './pages/Contact';
 import Products from './pages/Products';
+import Footer from './components/Footer';
 function AppRoutes() {
     return (
         <BrowserRouter>
@@ -19,6 +20,7 @@ function AppRoutes() {
 
                 <Route path="*" element={<h1>404 - Not Found</h1>} />
             </Routes>
+            <Footer />
         </BrowserRouter> 
     )
 }

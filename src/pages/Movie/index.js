@@ -1,16 +1,19 @@
-import { searchMovie } from "../../services/api";
+import { searchMovie, searchTV } from "../../services/api";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useLocation } from "react-router-dom";
 import { HiArrowSmLeft } from "react-icons/hi";
 import "./movie.css";
 
 export default function Movie() {
   const [movie, setMovie] = useState(null);
   const { id } = useParams();
+  const location = useLocation();
+  const isMovie = location.pathname.startsWith("/movie");
 
   useEffect(() => {
     async function loadMovieById() {
-      const req = await searchMovie(id);
+      const req = isMovie ? await searchMovie(id) : await searchTV(id);
+    
       setMovie(req.data);
     }
 
@@ -63,7 +66,7 @@ export default function Movie() {
 
               <div className="movie-meta">
                 <span>⭐ {movie.vote_average.toFixed(1)}</span>
-                <span>{movie.release_date.slice(0, 4)}</span>
+                {isMovie ? (<span>{movie.release_date.slice(0, 4)}</span>) : (<span>{movie.first_air_date.slice(0, 4)}</span>)}
                 <span>{movie.runtime} min</span>
               </div>
 

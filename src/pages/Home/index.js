@@ -102,7 +102,7 @@ let filteredMovie = {
       <div className="container-2">
         <section className="carousel-container">
           <h1 id="popular">Movies</h1>
-          <Carousel movies={popular} title="Popular" />
+          <Carousel movies={popular} title="Popular" type="movie"/>
         </section>
         <section className="carousel-container">
           <div>
@@ -123,7 +123,7 @@ let filteredMovie = {
                   }`}
                   onClick={() => setFilterMovie("Trending Movies")}>Trending Movies</button>
           </div>
-          <Carousel movies={filteredMovie} title={filterMovie}/>
+          <Carousel movies={filteredMovie} title={filterMovie} type="movie"/>
         </section>
         <section className="carousel-container">
           <div>
@@ -145,7 +145,7 @@ let filteredMovie = {
                   }`}
                   onClick={() => setFilterSerie("Trending")}>Trending Series</button>
           </div>
-          <Carousel movies={filteredSerie} title={filterSerie}/>
+          <Carousel movies={filteredSerie} title={filterSerie} type="tv"/>
         </section>
       </div>
       

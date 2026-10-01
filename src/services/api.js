@@ -53,6 +53,10 @@ async function searchMovie(query){
   return await api.get(`/movie/${query}`);
 }
 
+async function searchTV(query){
+  return await api.get(`/tv/${query}`);
+}
+
 export {
   popularMovies,
   nowPlayingMovies,
@@ -64,5 +68,6 @@ export {
   popularSeries,
   topRatedSeries,
   trendingSeries,
-  searchMovie
+  searchMovie,
+  searchTV
 };

@@ -1,6 +1,6 @@
 import "./carousel.css"
 import { HiArrowSmLeft, HiArrowSmRight } from "react-icons/hi";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 function Carousel({ movies, title, type }) {
@@ -11,11 +11,15 @@ function Carousel({ movies, title, type }) {
     
     
     const next = () => {
-        setPosition((current) => Math.min(current + cardWidth, maxPosition))
+        setPosition((current) => Math.min(current + cardWidth*4, maxPosition))
     }
     const previus = () => {
-        setPosition((current) => Math.max(current - cardWidth, 0))
+        setPosition((current) => Math.max(current - cardWidth*4, 0))
     }
+
+    useEffect(() => {
+        setPosition(0); // Reset position when movies change
+    }, [movies]);
 
   return (
     <div className="carousel">

@@ -36,7 +36,7 @@
   width: 50%;
 }
 
-.container-1 button {
+.container-1 a {
   background-color: var(--primary);
   color: #000000;
   border: none;

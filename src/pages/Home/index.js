@@ -96,7 +96,7 @@ let filteredMovie = {
           <h2 id="home">Welcome to</h2>
           <h1>CINEFLIX</h1>
           <span>Your favorite movie platform to discover new films</span>
-          <button>Explore Now</button>
+          <a href="#popular">Explore Now</a>
         </div>
       </div>
       <div className="container-2">

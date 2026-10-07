@@ -1,5 +1,5 @@
 import "./footer.css";
-
+import { Link } from "react-router-dom";
 function Footer() {
   return (
     <footer className="footer">
@@ -28,15 +28,16 @@ function Footer() {
     <div className="footer-section">
       <h3>About</h3>
 
-      <a href="/">About the Project</a>
-      <a
-        href="https://www.themoviedb.org/"
+      <Link to="/about">About the Project</Link>
+      <Link
+        to="https://www.themoviedb.org/"
         target="_blank"
         rel="noreferrer"
       >
         TMDB
-      </a>
-      <a href="/">GitHub</a>
+      </Link>
+      <Link to="https://github.com/Victor-Herison/react-project" target="_blank"
+        rel="noreferrer">GitHub</Link>
     </div>
 
     </div>

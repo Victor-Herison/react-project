@@ -9,7 +9,7 @@ function Header() {
     return (
       <header className="header">
         <div className="logo">
-            CINEFLIX
+            <Link to="/">CINEFLIX</Link>
         </div>
         <div className="search">
           <input type="text" placeholder="Search movies..." className="search-input" />
@@ -19,8 +19,8 @@ function Header() {
         </div>
         <nav>
             <Link to="/">Home</Link>
-            <Link to="/about">Movies</Link>
-            <Link to="/contact">About</Link>
+            <a href="/#popular">Movies</a>
+            <Link to="/about">About</Link>
         </nav>
       </header>
     )

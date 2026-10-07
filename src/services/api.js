@@ -57,6 +57,22 @@ async function searchTV(query){
   return await api.get(`/tv/${query}`);
 }
 
+async function getSimilarMovies(movieId) {
+  return await api.get(`/movie/${movieId}/similar`);
+}
+
+async function getVideosMovies(movieId) {
+  return await api.get(`/movie/${movieId}/videos`);
+}
+
+async function getSimilarTV(tvId) {
+  return await api.get(`/tv/${tvId}/similar`);
+}
+
+async function getVideosTV(tvId) {
+  return await api.get(`/tv/${tvId}/videos`);
+}
+
 export {
   popularMovies,
   nowPlayingMovies,
@@ -69,5 +85,9 @@ export {
   topRatedSeries,
   trendingSeries,
   searchMovie,
-  searchTV
+  searchTV,
+  getSimilarMovies,
+  getSimilarTV,
+  getVideosMovies,
+  getVideosTV
 };

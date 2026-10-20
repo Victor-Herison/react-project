@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Contact from './pages/Contact';
 import Footer from './components/Footer';
 import Movie from './pages/Movie';
+import SearchResults from './pages/SearchResults';
 function AppRoutes() {
     return (
         <BrowserRouter>
@@ -16,6 +17,7 @@ function AppRoutes() {
                 <Route path="/tv/:id" element={<Movie />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/search" element={<SearchResults />} />
                 <Route path="*" element={<h1>404 - Not Found</h1>} />
             </Routes>
             <Footer />

@@ -73,6 +73,12 @@ async function getVideosTV(tvId) {
   return await api.get(`/tv/${tvId}/videos`);
 }
 
+async function searchMulti(query, page = 1) {
+  return await api.get("/search/multi", {
+    params: { query, page, include_adult: false },
+  });
+}
+
 export {
   popularMovies,
   nowPlayingMovies,
@@ -89,5 +95,6 @@ export {
   getSimilarMovies,
   getSimilarTV,
   getVideosMovies,
-  getVideosTV
+  getVideosTV,
+  searchMulti
 };

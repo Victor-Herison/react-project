@@ -1,70 +1,94 @@
-# Getting Started with Create React App
+CINEFLIX
+CINEFLIX is a personal frontend project developed with React and the TMDB API. The project was created as a learning experience focused on building a simple movie and TV series discovery platform.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Users can explore popular titles, browse content by category, and view detailed information about movies and TV series.
+Features
+- Popular movies
+- Top-rated movies
+- Upcoming movies
+- Trending movies
+- TV series
+- Top-rated series
+- Airing today and currently airing series
+- Trending series
+- Individual movie and series pages
+- TMDB ratings
+- Responsive interface
+- Links to official websites
+Technologies
+- React
+- React Router
+- Axios
+- React Icons
+- TMDB API
+- CSS
+TMDB API
+CINEFLIX uses the TMDB API to retrieve information about movies and TV series, including:
+- Titles
+- Posters and backdrops
+- Ratings
+- Genres
+- Release dates
+- Descriptions
+- Official websites
+- TV series information
+This product uses the TMDB API but is not endorsed or certified by TMDB.
 
-## Available Scripts
+Installation
+1. Clone the repository
+git clone https://github.com/Victor-Herison/react-project.git
 
-In the project directory, you can run:
+2. Enter the project directory
+cd react-project
 
-### `npm start`
+3. Install dependencies
+npm install
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+4. Configure the TMDB API
+Create a .env file in the root directory:
+REACT_APP_API_URL=https://api.themoviedb.org/3
+REACT_APP_API_KEY=YOUR_TMDB_API_KEY
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Replace YOUR_TMDB_API_KEY with your own TMDB API key.
+5. Start the development server
+npm start
 
-### `npm test`
+The application will normally be available at:
+http://localhost:3000
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Project Structure
+src/
+├── components/
+│   └── Carousel/
+│
+├── pages/
+│   ├── Home/
+│   ├── Movie/
+│   └── About/
+│
+├── services/
+│   └── api.js
+│
+├── App.js
+└── index.js
 
-### `npm run build`
+The structure may change as the project evolves.
+Purpose
+CINEFLIX is primarily a personal learning project.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The main objectives were to practice:
+- React component development
+- React Router
+- API consumption
+- Axios
+- React Hooks
+- Dynamic routes
+- Responsive UI development
+- Integration with external APIs
+The project is intentionally kept relatively simple, focusing on fundamental concepts rather than complex architecture.
+Developer
+Developed by Victor Herison Pereira Patrocinio.
+- GitHub
+- LinkedIn
+License
+This project is intended for personal and educational purposes.
